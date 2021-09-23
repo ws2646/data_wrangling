@@ -12,9 +12,8 @@ library(tidyverse)
 I want to import `FAS_litters.csv`.
 
 ```{r}
-setwd("")
 
-litters_df = read_csv("data/FAS_litters.csv")
+litters_df = read_csv("./data/FAS_litters.csv")
 ```
 Now I want better names.
 
@@ -29,13 +28,13 @@ Let's look at the dataset.
 ```{r}
 litters_df
 
-head(litter_df)
-tail(litter_df)
+head(litters_df)
+tail(litters_df)
 ```
 One I use a lot is
 
 ```{r, eval=FALSE}
-view(litter_df)
+view(litters_df)
 ```
 Here's `skimer`
 ```{r}
@@ -44,5 +43,31 @@ skimr::skim(litters_df)
 
 ## Arguments in `read_csv`
 
+```{r}
+litters_df
+  read_csv(
+    "data/FAS_litters.csv",
+    skip = 5,
+    col_names = FALSE,
+    na = "Low8")
+  
+```
+## Parsing Columns
+
+```{r}
+litters_data = read_csv(file = "./data/FAS_litters.csv",
+  col_types = cols(
+    Group = col_character(),
+    `Litter Number` = col_character(),
+    `GD0 weight` = col_double(),
+    `GD18 weight` = col_double(),
+    `GD of Birth` = col_integer(),
+    `Pups born alive` = col_integer(),
+    `Pups dead @ birth` = col_integer(),
+    `Pups survive` = col_integer()
+  )
+)
+tail(litters_data)
+```
 
 
