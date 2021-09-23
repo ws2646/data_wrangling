@@ -9,8 +9,40 @@ library(tidyverse)
 
 ## Import some data
 
-I want to import `FAS_litters.csv`
+I want to import `FAS_litters.csv`.
 
+```{r}
+setwd("")
+
+litters_df = read_csv("data/FAS_litters.csv")
+```
+Now I want better names.
+
+```{r}
+names(litters_df)
+
+litters_df = janitor::clean_names(litters_df)
+```
+
+Let's look at the dataset.
+
+```{r}
+litters_df
+
+head(litter_df)
+tail(litter_df)
+```
+One I use a lot is
+
+```{r, eval=FALSE}
+view(litter_df)
+```
+Here's `skimer`
+```{r}
+skimr::skim(litters_df)
+```
+
+## Arguments in `read_csv`
 
 
 
