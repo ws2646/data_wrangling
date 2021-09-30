@@ -114,6 +114,18 @@ mutate(
 ```
 
 
+## `arrange`
+
+```{r}
+arrange(litters_df, pups_born_alive)
+```
+If you want to arrange multi-variables, the variable you put first will be arranged firstly.
+```{r}
+arrange(litters_df, pups_born_alive, gd0_weight)
+```
+
+
+
 
 
 
